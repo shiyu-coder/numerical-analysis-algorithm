@@ -1,0 +1,8 @@
+function res = fix_point_fun(f, x0, e)
+% f:函数指针
+% x0:迭代初值
+% e:精度
+x
+
+
+end
