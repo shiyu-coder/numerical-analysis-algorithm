@@ -1,0 +1,26 @@
+function x = jacobi_fun(a, b, n, x0, e)
+% a:系数矩阵
+% b:右边向量
+% x0:初始向量(列向量)
+% e:精度
+% 最大迭代次数M
+M = 100000;
+m = 0;
+x = zeros(n, 1);
+while norm(x -x0, 1)< e && m <= M
+    m = m + 1;
+    for i = 1:n
+         sum_ax = 0;
+         for j = 1:i-1
+             sum_ax = sum_ax + a(i, j) * x(j);
+         end
+         for j = i+1:n
+             sum_ax = sum_a
+         x(i) = -(sum_ax - b(i)) / a(i, i);
+    end
+    x0 = x;
+end
+if m > M
+    disp('达到最大循环次数')
+end
+end
