@@ -4,6 +4,23 @@ function x = gauss_seidel_fun(a, b, n, x0, e)
 % x0:初始向量(列向量)
 % e:精度
 % 最大迭代次数M
+
+% 求系数矩阵的对角矩阵
+cm_diag = diag(diag(a));
+% 求系数矩阵的下三角矩阵
+low_diag = -tril(a, -1);
+% 求系数矩阵的下三角矩阵
+up_diag = -triu(a, 1);
+
+B = (cm_diag - low_diag) \ up_diag;
+% 计算谱半径
+R = max(abs(eig(B)));
+if R >= 1
+    x = zeros(n, 1);
+    disp('谱半径不小于1，无法收敛')
+    return
+end
+
 M = 100000;
 m = 0;
 x = zeros(n, 1);

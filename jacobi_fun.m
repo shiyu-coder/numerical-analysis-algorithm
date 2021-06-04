@@ -7,6 +7,18 @@ function x = jacobi_fun(a, b, n, x0, e)
 M = 100000;
 m = 0;
 x = zeros(n, 1);
+
+ % 求系数矩阵的对角矩阵
+cm_diag = diag(diag(cm));
+B = cm_diag \ (cm_diag - cm);
+% 计算谱半径
+R = max(abs(eig(B)));
+if R >= 1
+    x = zeros(n, 1);
+    disp('谱半径不小于1，无法收敛')
+    return
+end
+
 while m <= M
     m = m + 1;
     for i = 1:n
