@@ -50,13 +50,13 @@ for i = 1:n-1
         ss(4-length(s1)+j) = ss(4-length(s1)+j) + s1(j);
     end
     for j = 1:length(s2)
-        ss(4-length(s1)+j) = ss(4-length(s1)+j) + s2(j);
+        ss(4-length(s2)+j) = ss(4-length(s2)+j) + s2(j);
     end
     for j = 1:length(s3)
-        ss(4-length(s1)+j) = ss(4-length(s1)+j) + s3(j);
+        ss(4-length(s3)+j) = ss(4-length(s3)+j) + s3(j);
     end
     for j = 1:length(s4)
-        ss(4-length(s1)+j) = ss(4-length(s1)+j) + s4(j);
+        ss(4-length(s4)+j) = ss(4-length(s4)+j) + s4(j);
     end
     res = [res; ss];
 end
