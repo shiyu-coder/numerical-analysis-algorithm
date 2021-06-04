@@ -9,8 +9,8 @@ m = 0;
 x = zeros(n, 1);
 
  % 求系数矩阵的对角矩阵
-cm_diag = diag(diag(cm));
-B = cm_diag \ (cm_diag - cm);
+cm_diag = diag(diag(a));
+B = cm_diag \ (cm_diag - a);
 % 计算谱半径
 R = max(abs(eig(B)));
 if R >= 1
