@@ -1,10 +1,10 @@
-function x = gauss_seidel_fun(a, b, n, x0, e)
+function x = gauss_seidel_fun(a, b, x0, e)
 % a:系数矩阵
 % b:右边向量
 % x0:初始向量(列向量)
 % e:精度
 % 最大迭代次数M
-
+n = length(b);
 % 求系数矩阵的对角矩阵
 cm_diag = diag(diag(a));
 % 求系数矩阵的下三角矩阵

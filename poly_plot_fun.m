@@ -7,8 +7,13 @@ function poly_plot_fun(param, X, Y, e, x0, y0)
 % e:绘制图像中的两点间隔
 % x:（可选）要预测的点横坐标
 % y:（可选）要预测的点纵坐标
-left = min([x0 - 3 * e, X(1) - 3 * e]);
-right = max([x0 + 3 * e, X(length(X)) + 3 * e]);
+if nargin > 4
+    left = min([x0 - 2 * e, X(1) - 2 * e]);
+    right = max([x0 + 2 * e, X(length(X)) + 2 * e]);
+else
+    left = X(1) - 3 * e;
+    right = X(length(X)) + 3 * e;
+end
 x = left:e:right;
 y = zeros(1, length(x));
 for i = 1:length(x)

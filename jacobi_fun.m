@@ -1,9 +1,10 @@
-function x = jacobi_fun(a, b, n, x0, e)
+function x = jacobi_fun(a, b, x0, e)
 % a:系数矩阵
 % b:右边向量
 % x0:初始向量(列向量)
 % e:精度
 % 最大迭代次数M
+n = length(b);
 M = 100000;
 m = 0;
 x = zeros(n, 1);
