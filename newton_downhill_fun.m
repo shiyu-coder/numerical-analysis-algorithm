@@ -9,6 +9,7 @@ while abs(x1 - x0) >= e
         lambda = lambda / 2;
         x1 = x0 - lambda * f(x0) / dif_fun(f, x0);
     end
+    lambda = 1;
     x0 = x1;
     x1 = x0 - lambda * f(x0) / dif_fun(f, x0);
 end

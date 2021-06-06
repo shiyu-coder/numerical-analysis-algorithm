@@ -14,6 +14,7 @@ for i = 1:n-1
     end
     T = [T; ls];
 end
+disp(ls)
 xp = 1;
 res = zeros(1, n);
 xpf = zeros(1, n);
