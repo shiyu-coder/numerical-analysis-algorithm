@@ -1,5 +1,5 @@
-function poly_plot_fun(param, X, Y, e, x0, y0)
-% param:多项式系数向量
+function f_plot_fun(f, X, Y, e, x0, y0)
+% f:函数句柄
 % X:插值节点横坐标
 % Y:插值节点纵坐标
 % left:左边界
@@ -17,9 +17,7 @@ end
 x = left:e:right;
 y = zeros(1, length(x));
 for i = 1:length(x)
-    for j = 1:length(param)
-        y(i) = y(i) + param(j) * x(i) ^ (length(param)-j);
-    end
+    y(i) = f(x(i));
 end
 plot(x, y, 'b');
 hold on

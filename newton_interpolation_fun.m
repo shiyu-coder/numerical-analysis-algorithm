@@ -14,21 +14,20 @@ for i = 1:n-1
     end
     T = [T; ls];
 end
-disp(ls)
-xp = 1;
+
 res = zeros(1, n);
-xpf = zeros(1, n);
-xpf(length(xpf)) = T(1, 1);
 for i = 2:n
-    res = res + xpf;
-    xp = conv(xp, ps(i-1, :));
+    xp = 1;
+    for j = 1:i-1
+        xp = conv(xp, ps(j, :));
+    end
     xpf = zeros(1, n);
     for j = 1:length(xp)
         xpf(n-length(xp)+j) = xp(j);
     end
-    xpf = xpf * T(i, i);
+    res = res + T(i, i) * xpf;
+    disp(res)
 end
-disp(xpf)
-res = res + xpf;
+res(n) = res(n) + T(1, 1);
 res = res';
 end
