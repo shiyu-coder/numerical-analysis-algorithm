@@ -5,14 +5,10 @@ function x = gauss_seidel_fun(a, b, x0, e)
 % e:精度
 % 最大迭代次数M
 n = length(b);
-% 求系数矩阵的对角矩阵
-cm_diag = diag(diag(a));
-% 求系数矩阵的下三角矩阵
-low_diag = -tril(a, -1);
-% 求系数矩阵的下三角矩阵
-up_diag = -triu(a, 1);
 
-B = (cm_diag - low_diag) \ up_diag;
+ % 求系数矩阵的对角矩阵
+cm_diag = diag(diag(a));
+B = cm_diag \ (cm_diag - a);
 % 计算谱半径
 R = max(abs(eig(B)));
 if R >= 1
